@@ -1,0 +1,46 @@
+Stocks
+
+int BuyStocks (int**& market, int n1, int n2, vector<int>& solution);
+
+In this problem, you are asked to implement a decision making mechanism for stock buying from the financial market. 
+Your aim is to find the investment that generates the best outcome for you.
+
+
+2-D array $market$ where each $market[i][j]$ showing the future outcome of stock[j] if bought at time [i]. However, there are 3 rules in this market:
+
+You must buy only one stock at a given time.
+You cannot buy a stock twice.
+You cannot buy a stock at a given time if a bigger id stock is already been bought in earlier time steps. 
+(e.g. if you choose to buy stock 5 at time t=2, you cannot consider buying stocks 0,1,2,3 or 4 after that point, i.e. for t = 3,4 ...)
+
+
+BuyStocks fills the $solution$ vector with the order and return the total outcome of that order.
+
+
+market: (n1 x n2)  2D-array holding the stock values where $market[ i ][ j ]$ denoting the value of stock j if bought in time i.
+n1  : total time steps
+n2  : number of total stocks
+solution  : your solution stored in this vector  where $solution[ i ]$ denotes the bought stock in time i
+
+
+Example I/O 
+
+1) Given market[][] = { { 7, 23, -5, -24, 16 },
+
+                           { 5, 21, -4, 10, 23 }, 
+
+                           { -21, 5, -4, -20, 20 } }, 
+
+         n1 = 3, n2 = 5
+         fill solution with {1,3,4}
+         return 53
+2) Given market[][] = { {-5, 10},
+                        {-2, 2} },
+         n1 = 2, n2 = 2
+         fill solution with {0,1}
+         return -3
+3) Given market[][] = { { 10, -2, 5 },
+                        { 5, -4, -1} }
+         n1 = 2, n2 = 3
+         fill solution with {0, 2} 
+         return 9

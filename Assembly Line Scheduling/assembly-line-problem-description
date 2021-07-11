@@ -1,0 +1,56 @@
+Assembly Line Scheduling 
+
+std::pair<int,int> Assembly_Rec (int*& a1, int*& a2, int n, int*& t1, int*& t2, int e1, int e2, int x1, int x2);
+
+std::pair<int,int> Assembly_Memo (int*& a1, int*& a2, int n, int*& t1, int*& t2, int e1, int e2, int x1, int x2);
+
+std::pair<int,int> Assembly_Tab (int*& a1, int*& a2, int n, int*& t1, int*& t2, int e1, int e2, int x1, int x2);
+
+In this problem there are 2 assembly lines. In the pipeline of the $n$ stations, each one of them has a particular work to accomplish. 
+Parallel stations of assembly lines accomplish the same task in different times given in $a1[.]$ or $a2[.]$ depending on the which assembly line the station is in. 
+In order to manufacture a car perfectly, it must pass through all of the stations.
+
+
+When passed through a station $i$, it can continue on the next station $i+1$ in the same line without any extra cost or 
+the line can be switched to the $i+1$th station of the other line incurring a cost given in $t1$ and $t2$ denoting cost of switching from 
+line 1 to 2 and from line 2 to 1 respectively. In addition, there are two sets of costs, namely $e1,e2$ and $x1,x2$, 
+representing entry and exit times of respective assembly lines. 
+
+
+
+a1[i] :the time for line 1 station i to complete its task
+a2[i] :the time for line 2 station i to complete its task
+n      : number of stations in each assembly line 
+t1[i]  : cost of changing from line 1 station i-1 to line 2 station i 
+t2[i]  : cost of changing from line 2 station i-1 to line 1 station i 
+e1,e2    : cost of entry for assembly line 1,2 respectively, each > 0
+x1,x2    : cost of exit for assembly line 1,2 respectively, each > 0
+
+
+
+
+Recursive solution returns the optimal value and number of recursive calls.
+Recursive + memorization solution returns the optimal value and number of recursive calls.
+Tabulation solution returns the optimal value and number of total iterations in the tabulation loop. 
+
+
+Example I/O 
+
+1) Given a1[] = { 7,9,3,4,8 }, a2[] = { 8,5,6,4,5 }, n = 5
+         t1[] = { 2,3,1,3 }, t2[] = { 2,1,2,2 },
+         e1 = 2, e2 = 4, x1 = 3, x2 = 6 
+         Assembly_Rec : return <35, 62> 
+         Assembly_Memo: return <35, 18> 
+         Assembly_Tab : return <35,5>
+2) Given a1[] = {4, 5, 3, 2}, a2[] = {2, 10, 1, 4}, n = 4
+         t1[] = {7,4,5}, t2[] = {9,2,8}
+         e1 = 10, e2 = 12, x1 = 18, x2 = 7 
+         Assembly_Rec : return <35,30>
+         Assembly_Memo: return <35,14>
+         Assembly_Tab : return <35,4>
+3) Given a1[] = {4,5}, a2[] = {2,10}, n = 2
+         t1[] = {2}, t2[] = {1}
+         e1 = 2, e2 = 1 x1 = 1, x2 = 1
+         Assembly_Rec : return <10,6>
+         Assembly_Memo: return <10,6>
+         Assembly_Tab : return <10,2>

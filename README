@@ -1,0 +1,4 @@
+There are two dynamic programming problems related to assembly line scheduling and stocks.
+Description files explains problems in detail.
+Recursive, memorization and tabulation solutions are provided for assembly line scheduling problem.
+Tabulation solution is provided for stocks problem.
